@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class UserDTO { // TODO: setting validations
     private String user_email;
     private String password;
     private String name;

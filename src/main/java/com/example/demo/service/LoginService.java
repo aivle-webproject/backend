@@ -2,16 +2,14 @@ package com.example.demo.service;
 
 import com.example.demo.domain.User;
 import com.example.demo.dto.LoginRequestDTO;
-import com.example.demo.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.NoSuchElementException;
+import repository.AccountRepository;
 
 @Service
 @RequiredArgsConstructor
 public class LoginService {
-    RepositorySomething userRepository;
+    private final AccountRepository userRepository;
 
     public boolean login(LoginRequestDTO request){
         String email = request.getUser_email();
