@@ -4,12 +4,12 @@ import com.example.demo.domain.User;
 import com.example.demo.dto.LoginRequestDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.example.demo.repository.AccountRepository;
+import com.example.demo.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor
 public class LoginService {
-    private final AccountRepository userRepository;
+    private final UserRepository userRepository;
 
     public boolean login(LoginRequestDTO request){
         String email = request.getUserEmail();

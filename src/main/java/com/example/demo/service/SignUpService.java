@@ -5,14 +5,14 @@ import com.example.demo.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.demo.repository.AccountRepository;
+import com.example.demo.repository.UserRepository;
 
 import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
 public class SignUpService {
-    private final AccountRepository userRepository;
+    private final UserRepository userRepository;
     /**
      * 화원 가입 서비스
      * @param user 신규 회원 dto
