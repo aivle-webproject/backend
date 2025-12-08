@@ -18,23 +18,22 @@ import java.util.Map;
 public class UserController {
     private final LoginService loginService;
     private final SignUpService signUpService;
-
     @PostMapping("/login")
     public ResponseEntity<Object> login(@RequestBody LoginRequestDTO request){
+        Map<String, Object> resp = new HashMap<>();
         try{
             boolean result = loginService.login(request);
             // 토큰 생성 <- 의존성 추가
+            resp.put("success",result);
 
-            // create a response
-            resp.put("success", result);
-            return resp;
+            return ResponseEntity.ok(resp);
         }catch(Exception e){
             boolean result = false;
 
             // create a response
             resp.put("success",result);
             resp.put("error_message",e.getMessage());
-            return resp;
+            return ResponseEntity.badRequest().body(resp);
         }
 
     }
@@ -45,16 +44,16 @@ public class UserController {
         Map<String, Object> resp = new HashMap<>();
         try{
             boolean result = signUpService.createAccount(newUser);
+            resp.put("success",result);
+            return ResponseEntity.created(null).body(resp);
 
-            resp.put("success", result);
-            return resp;
         }catch(Exception e){
             boolean result = false;
 
             // create a response
             resp.put("success",result);
             resp.put("error_message",e.getMessage());
-            return resp;
+            return ResponseEntity.badRequest().body(resp);
         }
     }
 
