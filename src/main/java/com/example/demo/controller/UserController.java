@@ -5,6 +5,7 @@ import com.example.demo.dto.UserDTO;
 import com.example.demo.service.LoginService;
 import com.example.demo.service.SignUpService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +20,7 @@ public class UserController {
     private final SignUpService signUpService;
 
     @PostMapping("/login")
-    public Map<String,Object> login(@RequestBody LoginRequestDTO request){
-        Map<String, Object> resp = new HashMap<>();
+    public ResponseEntity<Object> login(@RequestBody LoginRequestDTO request){
         try{
             boolean result = loginService.login(request);
             // 토큰 생성 <- 의존성 추가
@@ -41,7 +41,7 @@ public class UserController {
 
 
     @PostMapping("/signup")
-    public Map<String,Object> signUp(@RequestBody UserDTO newUser){
+    public ResponseEntity<Object> signUp(@RequestBody UserDTO newUser){
         Map<String, Object> resp = new HashMap<>();
         try{
             boolean result = signUpService.createAccount(newUser);
