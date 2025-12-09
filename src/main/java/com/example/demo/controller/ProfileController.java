@@ -38,7 +38,29 @@ public class ProfileController {
         return ResponseEntity.noContent().build();
     }
 
-    // 3) 계정 삭제
+    // 3) 이메일 변경
+    @PatchMapping("/{userId}/userEmail")
+    public ResponseEntity<User> changeUserEmail(
+            @PathVariable Long userId,
+            @RequestBody Map<String, String> request
+    ) {
+        String newUserEmail = request.get("newUserEmail");
+        profileService.changeUserEmail(userId, newUserEmail);
+        return ResponseEntity.noContent().build();
+    }
+
+    // 4) 닉네임 변경
+    @PatchMapping("/{userId}/name")
+    public ResponseEntity<User> changeName(
+            @PathVariable Long userId,
+            @RequestBody Map<String, String> request
+    ) {
+        String newName = request.get("newName");
+        profileService.changeName(userId, newName);
+        return ResponseEntity.noContent().build();
+    }
+
+    // 5) 계정 삭제
     @DeleteMapping("/{userId}")
     public ResponseEntity<User> deleteUser(@PathVariable Long userId) {
         profileService.deleteUser(userId);
