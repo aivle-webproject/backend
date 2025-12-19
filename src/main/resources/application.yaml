@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mariadb://aivle12-mariadb.czqb4x9zq3oq.ap-northeast-2.rds.amazonaws.com:3306/aivle12_mariadb
+    url: jdbc:mariadb://aivle12-mariadb.czqb4x9zq3oq.ap-northeast-2.rds.amazonaws.com:3306/aivle12_mariadb?allowMultiQueries=true&characterEncoding=UTF-8
     username: aivle12
     password: 12345678
     driver-class-name: org.mariadb.jdbc.Driver
