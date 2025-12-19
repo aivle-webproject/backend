@@ -3,22 +3,18 @@ server:
 
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:library
-    username: sa
-    password: 1234
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    url: jdbc:mariadb://aivle12-mariadb.czqb4x9zq3oq.ap-northeast-2.rds.amazonaws.com:3306/aivle12_mariadb
+    username: aivle12
+    password: 12345678
+    driver-class-name: org.mariadb.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update # 테이블이 없으면 자동으로 만들어주는 옵션
     show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-
+        format_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
 jwt:
   secret: your-256-bit-secret-key-change-this-in-production-min-32-characters
   expiration: 7200000
