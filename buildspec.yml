@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17   # Java 17 (필요 시 11, 21로 변경)
+    commands:
+      - echo "Install phase"
+
+  pre_build:
+    commands:
+      - echo "Pre-build phase"
+      - chmod +x ./gradlew
+
+  build:
+    commands:
+      - echo "Build started on $(date)"
+      - ./gradlew clean build -x test
+
+  post_build:
+    commands:
+      - echo "Build completed on $(date)"
+
+artifacts:
+  files:
+    - build/libs/*.jar
