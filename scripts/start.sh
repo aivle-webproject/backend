@@ -1,4 +1,8 @@
 #!/bin/bash
+
+pkill -f "java -jar" || true
+sleep 2
+
 set -e
 
 APP_DIR="/home/ubuntu/app"
