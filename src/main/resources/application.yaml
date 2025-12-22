@@ -7,6 +7,8 @@ spring:
     username: aivle12
     password: 12345678
     driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      connection-timeout: 5000
   jpa:
     hibernate:
       ddl-auto: update # 테이블이 없으면 자동으로 만들어주는 옵션
