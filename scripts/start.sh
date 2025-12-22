@@ -6,7 +6,7 @@ sleep 2
 
 set -e
 
-APP_DIR="/home/ubuntu/app"
+APP_DIR="/home/ec2-user/app"
 cd "$APP_DIR"
 
 # 최신 jar 찾기 (읽기만)
