@@ -9,7 +9,7 @@
 
 - **프로젝트명:** AIVLE WebProject
 - **파트:** Backend (서버 API 개발)
-- **기술 스택:** Java, Spring Boot (`build.gradle` 기반), h2 database
+- **기술 스택:** Java, Spring Boot (`build.gradle` 기반), MariaDB(AWS RDS)
 - **주요 기능:**  
   - 사용자 회원가입 & 로그인 처리  
   - 도서 등록, 조회 등의 API 제공  
